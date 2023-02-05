@@ -1,0 +1,31 @@
+<div class="container" >
+  <div class="row">
+    <%= image_tag @post.user.profile_image.variant(resize_to_fill: [50, 50]).processed , class: "user-icon" %>
+    <%= @post.user.name %>
+  </div>
+
+
+
+
+
+<%= image_tag @post.post_image.variant(resize_to_fill: [500, 400]).processed  %>
+<p>建築名：<%= @post.architecture %></p>
+<p>建築家：<%= @post.architect %></p>
+<p>所在地：<%= @post.address %></p>
+<p>国：<%= @post.country_code %></p>
+<p>内容：<%=@post.body %></p>
+<i class="far fa-clock clock-icon"></i><%= time_ago_in_words(@post.created_at) %>前
+
+<% if @post.user == current_user %>
+<%= link_to '編集', edit_post_path %>
+<%= link_to '削除', post_path(@post), method: :delete %>
+<% end %>
+
+
+<%= form_with model: [@post, @post_comment] do |f|%>
+<%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+<%= f.submit "送信する" %>
+<% end %>
+
+
+</div>

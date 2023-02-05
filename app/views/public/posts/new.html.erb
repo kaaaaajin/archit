@@ -1,0 +1,25 @@
+＃投稿画面
+
+<%= form_with model:@post, url: posts_path, method: :post do |f| %>
+  <%= f.label "建築写真" %>
+  <%= f.file_field :post_image, accept: "image/*" %>
+  
+  <%= f.label "建築名" %>
+   <%= f.text_field :architecture, class: 'form-control', autofocus: true, placeholder: "建築名" %>
+   
+  <%= f.label "建築家" %> 
+  <%= f.text_field :architect, class: 'form-control', autofocus: true, placeholder: "建築家" %>
+  
+  <%= f.label "所在地" %> 
+  <%= f.text_field :address, class: 'form-control', autofocus: true, placeholder: "所在地" %>
+  
+  <%= f.label "国" %> 
+  <%= f.text_field  :country_code, class: 'form-control', autofocus: true, placeholder: "国" %>
+  
+  <%= f.label "内容" %> 
+  <%= f.text_area :body, class: 'form-control', autofocus: true, placeholder: "内容" %>
+  
+  <%= f.submit "新規登録", class: 'btn btn-success' %>
+
+<% end %>
+

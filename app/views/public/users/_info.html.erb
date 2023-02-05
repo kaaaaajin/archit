@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <p class="profile_image text-center"><%= image_tag user.get_profile_image, class: "user-icon" %></p>
+    <p class="button text-right">
+      <% if user == current_user %>
+      <%= link_to edit_user_path(user), class: 'text-dark text-right' do %><i class="fas fa-user-cog"></i><% end %></p>
+      <% end %>
+    <h6 class="card-title"><%= user.name %></h6>
+    <p class="card-text"><%= user.introduction %></p>
+    <%= link_to new_post_path, class: "btn btn-outline-secondary btn-block" do %><i class="fas fa-pen"></i> 投稿する<% end %>
+    
+  </div>
+</div>
+　
+<div class='row'>
+ 
+</div>
+
+
