@@ -1,4 +1,5 @@
-<div class="container">
+<h2>Follow Users</h2>
+<% if @users.exists? %>
 <table class='table'>
   <thead>
     <tr>
@@ -12,11 +13,15 @@
       <tr>
         <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
         <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td id="relationship_btn_<%= user.id %>"><%= render 'public/relationships/btn', user: user  %></td>
+        <td><%= render 'btn', user: user %></td>
+        <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-</div>
+
+
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
 

@@ -1,22 +1,35 @@
-<%= form_with model:@post, url: post_path, method: :patch do |f| %>
-  <%= f.label "建築写真" %>
-  <%= f.file_field :post_image, accept: "image/*" %>
-  
-  <%= f.label "建築名" %>
-   <%= f.text_field :architecture, class: 'form-control', autofocus: true, placeholder: "建築名" %>
-   
-  <%= f.label "建築家" %> 
-  <%= f.text_field :architect, class: 'form-control', autofocus: true, placeholder: "建築家" %>
-  
-  <%= f.label "所在地" %> 
-  <%= f.text_field :address, class: 'form-control', autofocus: true, placeholder: "所在地" %>
-  
-  <%= f.label "国" %> 
-  <%= f.text_field  :country_code, class: 'form-control', autofocus: true, placeholder: "国" %>
-  
-  <%= f.label "内容" %> 
-  <%= f.text_area :body, class: 'form-control', autofocus: true, placeholder: "内容" %>
-  
-  <%= f.submit "変更を保存", class: 'btn btn-success' %>
-
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>編集画面</h2>
+    <%= form_with model:@post, url: post_path, method: :patch do |f| %>
+      <div class="form-group">
+        <%= f.label "picture" %>
+        <%= f.file_field :post_image, class: 'form-control-file', ccept: "image/*" %>
+      </div>  
+      <div class="form-group">
+        <%= f.label "architecture" %>
+        <%= f.text_field :architecture, class: 'form-control', autofocus: true, placeholder: "建築名" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "architect" %> 
+        <%= f.text_field :architect, class: 'form-control', autofocus: true, placeholder: "建築家" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "address" %> 
+        <%= f.text_field :address, class: 'form-control', autofocus: true, placeholder: "所在地" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "country" %> 
+        <%= f.country_select :country_code, class: 'form-control', selected: "JP" %> 
+      </div>
+      <div class="form-group">
+        <%= f.label "caption" %> 
+        <%= f.text_area :body, class: 'form-control', autofocus: true, placeholder: "内容" %>
+      </div>  
+      <div class="form-group">
+        <%= f.submit "変更を保存", class: 'btn btn-secondary' %>
+      </div>  
+    <% end %>
+    </div>
+</div>

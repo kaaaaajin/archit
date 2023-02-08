@@ -1,3 +1,13 @@
-#TOP
-＃世界中の素晴らしい建築を写真で共有できるSNS
-＃ログインボタンとゲストボタンを配置予定
+
+<div class='container'>
+  <div class='row text-center'>
+    <div class="col-sm-12 col-md-10 col-lg-7 py-5 mx-auto m-5 bg-white">
+         <h1><strong>Archit.</strong></h1>
+         <p class="mt-4">Archit.(アージェ)は、世界中の素晴らしい建築を写真で共有するSNSです</p>
+         <p>あなたの好きな建築を写真で共有しよう</p>
+         <div class="mt-4"><%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-secondary w-50"%></div>
+         <div class="mt-4"> <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-secondary w-50"%></div>
+         <div class="mt-4"><%= link_to "ゲストログイン", new_user_session_path, class: "btn btn-light w-50"%></div>
+    </div>
+  </div>
+</div>

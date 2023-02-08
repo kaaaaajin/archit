@@ -1,0 +1,7 @@
+<% @favorites_list.each  do |list| %>
+  <% if list.post_image.attached? %>
+  <%= link_to post_path(list) do %>
+ <%= image_tag list.post_image.variant(resize_to_fill: [200, 200]).processed  %>
+        <% end %>
+    <% end %>
+<% end %>

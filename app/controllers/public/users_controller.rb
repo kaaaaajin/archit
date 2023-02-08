@@ -3,6 +3,7 @@ class Public::UsersController < ApplicationController
     def index
         @users = User.all
         @post = Post.new
+        
     end
     
     def show
@@ -23,6 +24,15 @@ class Public::UsersController < ApplicationController
     
     def destroy
     end
+    
+    def favorites
+      @favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
+      @favorites_list = Post.find(@favorites)
+      
+      
+    end
+
+ 
     
     private
 

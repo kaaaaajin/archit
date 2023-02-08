@@ -11,11 +11,11 @@ class Public::SessionsController < Devise::SessionsController
    
    
    def after_sign_in_path_for(resource)
-     users_path(current_user)
+     user_path(current_user)
    end
   
    def after_sign_out_path_for(resource)
-     new_admin_session_path
+     root_path
     
    end
   # GET /resource/sign_in
