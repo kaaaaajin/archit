@@ -16,10 +16,9 @@
 
 <% if @post.user == current_user %>
 <%= link_to '編集', edit_post_path %>
-<%= link_to '削除', post_path(@post.user.id), method: :delete %>
+<%= link_to '削除', post_path(@post), method: :delete %>
 <% end %>
 
-<%= @post.post_comments.count%>件
  <div id="post_<%= @post.id %>">
      <p class="favorite-btn"><%= render "public/favorites/btn", post: @post %></p>
  </div>
@@ -37,7 +36,7 @@
 
 
 <div class="post_comments">
-    <%= render "public/post_comments/comment", post: @post %>
+    <%= render "public/post_comments/comment", post: @post, post_comment: @post_comment %>
 </div>
     
  

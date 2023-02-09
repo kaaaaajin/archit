@@ -7,7 +7,7 @@
          <p>あなたの好きな建築を写真で共有しよう</p>
          <div class="mt-4"><%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-secondary w-50"%></div>
          <div class="mt-4"> <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-secondary w-50"%></div>
-         <div class="mt-4"><%= link_to "ゲストログイン", new_user_session_path, class: "btn btn-light w-50"%></div>
+         <div class="mt-4"><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-light w-50", method: :post%></div>
     </div>
   </div>
 </div>

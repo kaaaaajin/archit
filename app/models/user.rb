@@ -24,6 +24,7 @@ class User < ApplicationRecord
     end
   end
   
+  
   # ユーザーアイコン
   def get_profile_image
     unless profile_image.attached?
@@ -47,5 +48,7 @@ class User < ApplicationRecord
   def following?(user)
     self.followings.include?(user)
   end
+  
+   scope :is_deleted, -> { where(is_deleted: false) }
 
 end

@@ -14,7 +14,8 @@ class Public::PostsController < ApplicationController
     end
     
     def index
-        @posts = Post.all
+        @q = Post.ransack(params[:q])
+        @posts = @q.result(distinct: true)
         
     end
     
@@ -31,7 +32,7 @@ class Public::PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
         @post.update(post_params)
-        flash[:notice] = "更新できました"
+        flash[:notice] = "投稿を編集しました"
         redirect_to post_path(@post)
     end
     

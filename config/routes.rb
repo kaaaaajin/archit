@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   
   # ゲストログイン用
   devise_scope :user do
-    post 'public/guest_sign_in', to: 'public/sessions#guest_sign_in'
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
   
   namespace :admin do
@@ -32,7 +32,6 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
   	  get 'followings' => 'relationships#followings', as: 'followings'
   	  get 'followers' => 'relationships#followers', as: 'followers'
-  	  
   	  collection do
        get :favorites
       end
@@ -41,6 +40,7 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
         resource :favorites, only: [:create, :destroy]
     end 
+    
     
   end
     

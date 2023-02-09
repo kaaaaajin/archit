@@ -5,7 +5,7 @@
    <i class="far fa-clock clock-icon"></i><%= time_ago_in_words(post_comment.created_at) %>前
      
    <% if post_comment.user == current_user %>
-     <%= link_to "削除",  post_post_comment_path(post,post_comment), method: :delete %>
+     <%= link_to "削除",  post_post_comment_path(post,post_comment), method: :delete, remote: true %>
    <% end %>
  <% end %>
  
