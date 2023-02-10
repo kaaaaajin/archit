@@ -26,12 +26,12 @@ class User < ApplicationRecord
   
   
   # ユーザーアイコン
-  def get_profile_image
+  def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpeg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpeg', content_type: 'image/jpeg')
     end
-      profile_image.variant(resize_to_limit: [100, 100]).processed
+      profile_image.variant(resize_to_fill: [width, height]).processed
   end
   
     # ユーザーをフォローする
@@ -48,7 +48,5 @@ class User < ApplicationRecord
   def following?(user)
     self.followings.include?(user)
   end
-  
-   scope :is_deleted, -> { where(is_deleted: false) }
 
 end

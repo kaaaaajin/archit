@@ -9,6 +9,12 @@ class Post < ApplicationRecord
           
      end
      
+     def get_post_image(width, height)
+       if post_image.attached?
+          post_image..variant(resize_to_fill: [width, height]).processed
+       end
+     end
+     
     
 end
 
