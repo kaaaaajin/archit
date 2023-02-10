@@ -57,6 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'jquery-rails'
-gem 'country_select'
 gem 'rails-i18n'
 gem 'ransack'

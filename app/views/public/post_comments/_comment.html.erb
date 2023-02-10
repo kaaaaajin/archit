@@ -1,11 +1,20 @@
 <% post.post_comments.each do |post_comment| %>
-   <%= image_tag post_comment.user.profile_image.variant(resize_to_fill: [50, 50]).processed , class: "user-icon" %>
-   <%= post_comment.user.name%>
-   <%= post_comment.comment %>
-   <i class="far fa-clock clock-icon"></i><%= time_ago_in_words(post_comment.created_at) %>前
-     
-   <% if post_comment.user == current_user %>
-     <%= link_to "削除",  post_post_comment_path(post,post_comment), method: :delete, remote: true %>
-   <% end %>
- <% end %>
- 
+  <div class="card mt-2">
+    <div class="card-body">
+      <h5 class="card-title text-left">
+        <%= image_tag post_comment.user.profile_image.variant(resize_to_fill: [50, 50]).processed  %>
+        <%= post_comment.user.name%> 
+      </h5>
+      <p class="card-text text-left">
+        <%= post_comment.comment %>
+       
+      </p>
+      <p class="card-link">
+         <i class="far fa-clock clock-icon"></i><%= time_ago_in_words(post_comment.created_at) %>前
+       <% if post_comment.user == current_user %>
+         <%= link_to post_post_comment_path(post,post_comment), method: :delete, remote: true, class: "text-dark text-right" do %> <i class="fas fa-trash-alt"></i> 削除<% end %>
+      <% end %>
+      </p>
+  </div>
+</div> 
+<% end %>

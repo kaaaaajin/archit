@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 2023_02_04_021234) do
     t.string "address", null: false
     t.float "latitude"
     t.float "longitude"
-    t.string "country_code", default: "JP"
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
