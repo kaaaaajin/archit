@@ -49,11 +49,9 @@
     <div class="col-sm-12 col-md-5 col-lg-7 offset-lg-1">
       <div class="photo">
         <% @posts.each do |post| %>
-          <% if post.post_image.attached? %>
             <%= link_to post_path(post) do %>
-              <%= image_tag post.post_image.variant(resize_to_fill: [200, 200]).processed %>
+              <%= image_tag post.get_post_image(200, 200).processed %>
             <% end %>
-          <% end %>
         <% end %>
       </div>
     </div>
