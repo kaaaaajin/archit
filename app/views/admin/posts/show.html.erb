@@ -1,0 +1,52 @@
+<div class="container bg-white" >
+  <div class="row">
+    <div class="col-sm-12 col-lg-6">
+        <div class="info px-4 my-2">
+          <%= image_tag @post.user.get_profile_image(50, 50) %>
+        　<%= link_to admin_user_path(@post.user) do %>
+            <%= @post.user.name %>
+          <% end %> 
+        </div>
+
+        <div class="photo text-center">
+           <%= image_tag @post.get_post_image(500, 400) %> 
+        </div>
+        <div class="menu d-flex ml-4">
+          
+          <div id="post_<%= @post.id %>">
+            <p class="comments-count">
+              <i class="far fa-comment fa-lg" style="color: deepskyblue;"></i>
+                <span class="text-primary"><%= @post.post_comments.count %></span></p>
+          </div>
+        </div>
+
+        <div class ="architectural">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">建築名<span class="ml-5"><%= @post.architecture %></span></li>
+            <li class="list-group-item">建築家<span class="ml-5"><%= @post.architect %></span></li>
+            <li class="list-group-item">所在地<span class="ml-5"><%= @post.address %></span></li>
+            <li class="list-group-item"><%=@post.body %></li>
+          </ul>
+          <div class="time text-right mt-2 p-3">
+            <i class="far fa-clock clock-icon"></i><%= time_ago_in_words(@post.created_at) %>前
+          </div>
+
+          <div class= "link text-right p-3">
+               <%= link_to admin_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "text-dark text-right" do %>
+                 <i class="fas fa-trash-alt"></i> 削除
+               <% end %>
+             
+          </div>
+        </div>
+    </div>
+
+        <div class="col-lg-5 m-4 text-right">
+     
+        <div id="post_<%= @post.id %>">
+          <div class="post_comments mt-4">
+              <%= render "admin/post_comments/comment", post: @post, post_comment: @post_comment %>
+          <div>
+        </div>
+    </div>
+  </div>
+</div>
