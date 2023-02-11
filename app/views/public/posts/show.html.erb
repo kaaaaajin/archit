@@ -38,7 +38,7 @@
                <%= link_to edit_post_path, class: "text-dark text-right" do %>
                  <i class="fas fa-edit"></i>編集 |
                <% end %>
-               <%= link_to post_path(@post), method: :delete, class: "text-dark text-right" do %>
+               <%= link_to post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "text-dark text-right" do %>
                  <i class="fas fa-trash-alt"></i> 削除
                <% end %>
              <% end %>

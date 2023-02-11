@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 mx-auto my-3">
-      <%= search_form_for @q, url: users_path do |f| %>
+      <%= search_form_for @q, url: admin_users_path do |f| %>
         <div class="input-group">
           <%= f.search_field :name_cont, class: "form-control" ,placeholder: "ユーザー名" %>
            <span class="input-group-btn">
@@ -12,13 +12,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-8 mx-auto py-5">
+    <div class="col-8 mx-auto py-3">
       <h2 class="text-center mb-3">Users</h2>
+      <p class="button text-right"><%= link_to "退会済みユーザー全て削除", admin_destroy_all_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger btn-sm' %></p>
       <table class='table table-hover text-center'>
         <thead>
           <tr>
             <th colspan="2">ユーザー名</th>
-            <th></th>
+            <th>ステータス</th>
           </tr>
         </thead>
         <tbody>
@@ -26,12 +27,15 @@
             <% if user.name != "guestuser" %>
               <tr>
                 <td><%= image_tag user.get_profile_image(50,50) %></td>
-                <td><%= link_to user_path(user) do %>
+                <td><%= link_to admin_user_path(user) do %>
                       <%= user.name %>
                     <% end %>
                 </td>
-                <td id="relationship_btn_<%= user.id %>">
-                  <%= render 'public/relationships/btn', user: user  %>
+                <td><% unless user.is_deleted == false %>
+                      <p class="status text-muted"><%= p "退会済み" %></p>
+                    <% else %>
+                      <p class="status text-success"><%= p "有効" %></P>
+                　   <% end %>
                 </td>
               </tr>
             <% end %>

@@ -1,5 +1,12 @@
-<% @favorites_list.each  do |list| %>
-  <%= link_to post_path(list) do %>
-    <%= image_tag list.get_post_image(200, 200) %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row ">
+    <div class="col-sm-12">
+      <h2 class="text-center">Favorites</h2>
+      <% @favorites_list.each  do |list| %>
+        <%= link_to post_path(list) do %>
+          <%= image_tag list.get_post_image(200, 200) %>
+        <% end %>
+      <% end %>
+   </div>
+  </div>
+</div>

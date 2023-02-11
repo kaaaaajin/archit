@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+          post:
+            architecture: 建築名
+            architect: 建築家
+            address: 所在地
+            post_image: 画像
+         

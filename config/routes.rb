@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    get 'top' => 'homes#top', as: 'top'
+     delete "users/destroy_all" => 'users#destroy_all', as: "destroy_all"
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :posts, only: [:index, :show, :destroy] do
       resources :post_comments, only: [:destroy]
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     root 'homes#top'
      get "users/unsubscribe" => "users#unsubscribe"
      patch 'users/withdraw' => 'users#withdraw'
-    resources :users, only: [:index, :show, :edit, :update, :destroy] do
+    resources :users, only: [:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
   	  get 'followings' => 'relationships#followings', as: 'followings'
   	  get 'followers' => 'relationships#followers', as: 'followers'
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
         resource :favorites, only: [:create, :destroy]
+        resource :likes, only: [:create, :destroy]
     end 
     
     

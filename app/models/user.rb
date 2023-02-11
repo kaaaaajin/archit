@@ -23,7 +23,7 @@ class User < ApplicationRecord
       user.name = "guestuser"
     end
   end
-  
+
   
   # ユーザーアイコン
   def get_profile_image(width, height)

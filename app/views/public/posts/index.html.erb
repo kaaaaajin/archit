@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+
     <div class="col-md-6 mx-auto my-3">
       <%= search_form_for @q, url: posts_path do |f| %>
         <div class="input-group">
@@ -13,11 +14,13 @@
   </div>
   <div class="row ">
     <div class="col-sm-12">
+          <h2 class="text-center mb-3">Posts</h2>
      <% @posts.each do |post| %>
-        <%= link_to post_path(post) do %>
-        <%= image_tag post.get_post_image(200, 200) %>
-        <% end %>
-    <% end %>
+       <%= link_to post_path(post) do %>
+         <%= image_tag post.get_post_image(200, 200) %>
+       <% end %>
+     <% end %>
     </div>
   </div>
+</div>
 

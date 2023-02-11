@@ -1,24 +1,31 @@
-<h2>Follower Users</h2>
-<% if @users.exists? %>
-  <table class='table'>
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= image_tag user.get_profile_image(50,50) %></td>
-        <td><%= user.name %></td>
-        <td><%= render 'btn', user: user %></td>
-        <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+ <div>
+   <div class="row">
+      <div class="col-6 mx-auto py-5">
+        <h2>Follower Users</h2>
+        <% if @users.exists? %>
+          <table class='table table-hover text-center'>
+            <thead>
+              <tr>
+                <th colspan="2">ユーザー名</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= image_tag user.get_profile_image(50,50) %></td>
+                  <td><%= link_to user_path(user.id) do %>
+                        <%= user.name %>
+                      <% end %>
+                  </td>
+                  <td><%= render 'btn', user: user %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <p>ユーザーはいません</p>
+        <% end %>
+      </div>
+    </div>
+ </div> 
