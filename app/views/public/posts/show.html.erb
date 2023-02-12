@@ -17,8 +17,7 @@
           </div>
           <div id="post_<%= @post.id %>">
             <p class="comments-count">
-              <i class="far fa-comment fa-lg" style="color: deepskyblue;"></i>
-                <span class="text-primary"><%= @post.post_comments.count %></span></p>
+                <%= render "public/post_comments/count", post: @post %></p>
           </div>
         </div>
 
