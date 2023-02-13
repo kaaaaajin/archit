@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
     
     def index
         @q = User.ransack(params[:q])
-        @users = @q.result(distinct: true) 
+        @users = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
     end
     
     def show
@@ -18,9 +18,7 @@ class Admin::UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
-           redirect_to admin_user_path(@user), notice: "会員情報を更新しました。"
-        else 
-        　render "edit", notice: "更新に失敗しました"
+           redirect_to admin_user_path(@user)
         end
     end
     
@@ -41,7 +39,7 @@ class Admin::UsersController < ApplicationController
     private
     
     def user_params
-      params.require(:user).permit(:name, :introduction, :profile_image)
+      params.require(:user).permit(:name, :email, :is_deleted, :introduction, :profile_image)
     end
     
     

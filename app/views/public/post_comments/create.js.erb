@@ -1,3 +1,3 @@
 $("#post_<%= @post.id %> .comments-count").html("<%= j(render 'public/post_comments/count', post: @post) %>");
-$("#post_<%= @post.id %> .post_comments").html("<%= j(render 'public/post_comments/comment', post: @post) %>");
+$("#post_<%= @post.id %> .post_comments").html("<%= j(render 'public/post_comments/comment', post: @post, post_comments: @comments) %>");
 $("#post_comment_comment").val("");

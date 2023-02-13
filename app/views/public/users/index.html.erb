@@ -25,7 +25,7 @@
           <% @users.each do |user| %>
             <% if user.name != "guestuser" %>
               <tr>
-                <td><%= image_tag user.get_profile_image(50,50) %></td>
+                <td><%= image_tag user.get_profile_image(50,50), class: "rounded-circle" %></td>
                 <td><%= link_to user_path(user) do %>
                       <%= user.name %>
                     <% end %>

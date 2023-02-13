@@ -10,24 +10,22 @@ class Public::PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user_id = current_user.id
        if @post.save
-        flash[:notice] = "投稿が成功しました。"
-        redirect_to post_path(@post)
+         redirect_to post_path(@post), notice: "投稿が成功しました。"
        else
-        flash[:alret] = "投稿に失敗しました。入力内容をご確認ください。"
-        render :new
+         render :new, alert: "投稿に失敗しました。入力内容をご確認ください。"
        end
     end
     
     def index
         @q = Post.ransack(params[:q])
-        @posts = @q.result(distinct: true)
+        @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
         
     end
     
     def show
         @post = Post.find(params[:id])
         @post_comment = PostComment.new
-        
+        @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(7)
     end
     
     def edit
@@ -37,11 +35,9 @@ class Public::PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
        if @post.update(post_params)
-        flash[:notice] = "投稿を更新しました"
-        redirect_to post_path(@post)
+         redirect_to post_path(@post), notice: "投稿を更新しました"
        else
-        flash[:alret] = "更新できませんでした。入力内容をご確認ください。"
-        render :edit
+         render :edit, alert: "更新できませんでした。入力内容をご確認ください。"
        end   
     end
     

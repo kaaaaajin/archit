@@ -3,12 +3,12 @@ class Admin::PostsController < ApplicationController
     
     def index
         @q = Post.ransack(params[:q])
-        @posts = @q.result(distinct: true)
+        @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
     end
     
     def show
         @post = Post.find(params[:id])
-        
+        @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(5)
         
     end
     

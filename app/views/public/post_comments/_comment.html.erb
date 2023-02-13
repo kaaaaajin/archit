@@ -1,8 +1,8 @@
-<% post.post_comments.each do |post_comment| %>
+<% post_comments.each do |post_comment| %>
   <div class="card mt-2">
     <div class="card-body">
       <h5 class="card-title text-left">
-        <%= image_tag post_comment.user.get_profile_image(50, 50) %>
+        <%= image_tag post_comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
         <%= post_comment.user.name%> 
       </h5>
       <p class="card-text text-left">

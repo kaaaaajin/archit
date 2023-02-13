@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
     
     def index
         @q = User.ransack(params[:q])
-        @users = @q.result(distinct: true)
+        @users = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
         @post = Post.new
     
     end
@@ -25,9 +25,9 @@ class Public::UsersController < ApplicationController
       if @user.update(user_params)
          redirect_to user_path(current_user), notice: "会員情報を更新しました。"
       else
-         render "edit", notice: "更新に失敗しました"
+         render "edit", alert: "更新に失敗しました"
       end
-   end
+    end
     
     def withdraw
         current_user.update(is_deleted: true)

@@ -1,37 +1,46 @@
 <div class="container bg-white" >
   <div class="row">
     <div class="col-sm-12 col-lg-6">
-        <div class="info px-4 my-2">
-          <%= image_tag @post.user.get_profile_image(50, 50) %>
+      　
+        <div class="info px-4 my-3">
+          <%= image_tag @post.user.get_profile_image(50, 50), class: "rounded-circle" %>
         　<%= link_to user_path(@post.user) do %>
             <%= @post.user.name %>
           <% end %> 
         </div>
-
+        <!--投稿写真-->
         <div class="photo text-center">
            <%= image_tag @post.get_post_image(500, 400) %> 
         </div>
+        <!--お気に入り、いいね、コメント用ボタン-->
         <div class="menu d-flex">
           <div id="post_<%= @post.id %>">
-            <p class="favorite-btn text-left px-4"><%= render "public/favorites/btn", post: @post %></p>
+            <p class="favorite-btn mt-2 ml-4"><%= render "public/favorites/btn", post: @post %></p>
           </div>
           <div id="post_<%= @post.id %>">
-            <p class="comments-count">
-                <%= render "public/post_comments/count", post: @post %></p>
+            <p class="like-btn mt-2 ml-4"><%= render "public/likes/btn", post: @post %></p>
+          </div>
+          <div id="post_<%= @post.id %>">
+            <span class="comments-count ml-3"><%= render "public/post_comments/count", post: @post %></span>
           </div>
         </div>
-
+　　　　<!--投稿情報-->
         <div class ="architectural">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">建築名<span class="ml-5"><%= @post.architecture %></span></li>
             <li class="list-group-item">建築家<span class="ml-5"><%= @post.architect %></span></li>
+            <li class="list-group-item mr-2"><%=@post.body %></li>
             <li class="list-group-item">所在地<span class="ml-5"><%= @post.address %></span></li>
-            <li class="list-group-item"><%=@post.body %></li>
           </ul>
+          <!--googlemap表示場所-->
+          <div class="googlemap center">
+            <div id="map"></div>
+          </div>
+          
           <div class="time text-right mt-2 p-3">
             <i class="far fa-clock clock-icon"></i><%= time_ago_in_words(@post.created_at) %>前
           </div>
-
+　　　　　<!--投稿-->
           <div class= "link text-right p-3">
              <% if @post.user == current_user %> 
                <%= link_to edit_post_path, class: "text-dark text-right" do %>
@@ -43,15 +52,54 @@
              <% end %>
           </div>
         </div>
-    </div>
+          
+        <!--google map表示サイズ -->
+        <style>
+          #map {
+            height: 500px;
+          }
+        </style>
+        <!--googlemap表示用-->
+        <script>
+          function initMap() {
+            let location = {lat: <%= @post.latitude || 0 %>, lng: <%= @post.longitude || 0 %>};
+            let map = new google.maps.Map(document.getElementById('map'),{
+              zoom: 15,
+              center: location
+            });
+            let transitLayer = new google.maps.TransitLayer();
+              transitLayer.setMap(map);
+            let contentString = '<p><%= @post.architecture %></p>'+'<p><%= @post.address %></p>';
+            let infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+            let marker = new google.maps.Marker({
+              position: location,
+              map: map,
+              title: contentString
+            });
+            marker.addListener('click',function(){
+              infowindow.open(map,marker);
+            });
+          }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
 
-    <div class="col-lg-5 m-4 text-right">
+    </div>
+    
+    <!--コメント-->
+    <div class="post_comment_comment col-lg-6 text-right pr-4">
       <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
         <div id="post_<%= @post.id %>">
           <div class="post_comments mt-4">
-              <%= render "public/post_comments/comment", post: @post, post_comment: @post_comment %>
+              <%= render "public/post_comments/comment",post: @post, post_comments: @comments, post_comment: @post_comment %>
           <div>
         </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col align-self-end my-3"><%= paginate @comments %></div>
+  </div>
+  
 </div>
+
