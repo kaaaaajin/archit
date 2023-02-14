@@ -1,12 +1,16 @@
-<div>
-  <h2>本当に退会しますか？</h2>
-  <div>
-    <p>退会すると、すべてのサービスがご利用できなくなります</br>
-再度ご利用いただく場合、新規登録のお手続きが必要となります</br>
-退会する場合は、「退会する」をクリックしてください</p>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class= "col-sm-10 text-center">
+      <h2>本当に退会しますか？</h2>
+        <p>退会すると、すべてのサービスがご利用できなくなります</br>
+            再度ご利用いただく場合、新規登録のお手続きが必要となります</br>
+            退会する場合は、「退会する」をクリックしてください</p>
+      <div class="button">
+        <%= link_to '退会しない', user_path(current_user), class: "btn btn-primary mr-4" %>
+        <%= link_to "退会する", users_withdraw_path, method: :patch, class: "btn btn-danger ml-4" %>
+      </div>
+      </div>
+      
   </div>
-  <div>
-    <%= link_to '退会しない', user_path(current_user) %>
-    <%= link_to "退会する", users_withdraw_path, method: :patch %>
-  </div>
+  
 </div>
