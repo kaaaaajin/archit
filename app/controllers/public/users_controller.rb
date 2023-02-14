@@ -23,7 +23,7 @@ class Public::UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
       if @user.update(user_params)
-         redirect_to user_path(current_user), notice: "会員情報を更新しました。"
+         redirect_to user_path(current_user), notice: "会員情報を更新しました"
       else
          render "edit", alert: "更新に失敗しました"
       end

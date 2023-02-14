@@ -8,7 +8,7 @@ class Admin::PostsController < ApplicationController
     
     def show
         @post = Post.find(params[:id])
-        @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(5)
+        @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(7)
         
     end
     

@@ -1,8 +1,8 @@
-<% post.post_comments.each do |post_comment| %>
+<% post_comments.each do |post_comment| %>
   <div class="card mt-2">
     <div class="card-body">
       <h5 class="card-title text-left">
-        <%= image_tag post_comment.user.get_profile_image(50, 50) %>
+        <%= image_tag post_comment.user.get_profile_image(50, 50), class: "rounded-circle" %> %>
         <%= post_comment.user.name%> 
       </h5>
       <p class="card-text text-left">
@@ -13,7 +13,6 @@
          <%= link_to  admin_post_post_comment_path(post,post_comment), method: :delete, remote: true, class: "text-dark text-right" do %>
            <i class="fas fa-trash-alt"></i> 削除
          <% end %>
-    
       </p>
   </div>
 </div> 

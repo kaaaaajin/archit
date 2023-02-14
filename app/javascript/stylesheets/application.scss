@@ -14,3 +14,29 @@ body {
 .nav-item, h2 {
      font-family:'Vollkorn', serif;
 }
+
+.pickup-img {
+  position: relative;
+}
+.pickup-img:before {
+  border-color: #cc0 transparent transparent transparent;
+  border-style: solid;
+  border-width: 60px 60px 0 0;
+  content: "";
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  z-index: 2;
+}
+.pickup-img:after {
+  color: #fff;
+  content: "NEW";
+  font-size: 12px;
+  position: absolute;
+  top: 15px;
+  left: 8px;
+  transform: rotate(-45deg);
+  z-index: 3;
+}
