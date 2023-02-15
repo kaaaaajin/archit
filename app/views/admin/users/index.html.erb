@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    <!--ユーザー検索用-->
     <div class="col-md-4 mx-auto my-3">
       <%= search_form_for @q, url: admin_users_path do |f| %>
         <div class="input-group">
@@ -13,6 +14,7 @@
   </div>
   <div class="row">
     <div class="col-8 mx-auto py-3">
+      <!--登録しているユーザー一覧-->
       <h2 class="text-center mb-3">Users</h2>
       <p class="button text-right"><%= link_to "退会済みユーザー全て削除", admin_destroy_all_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger btn-sm' %></p>
       <table class='table table-hover text-center'>
@@ -43,5 +45,5 @@
         </tbody>
       </table>
     </div>
-   <%= paginate @users %>
+   <div class="row justify-content-center"><%= paginate @users %></div> 
   </div>

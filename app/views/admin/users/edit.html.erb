@@ -2,7 +2,7 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h2>User info</h2>
-    <%= form_with model: @user, url: admin_user_path, method: :put do |f| %>
+    <%= form_with model: @user, url: admin_user_path, method: :pach do |f| %>
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control name" %>
@@ -20,5 +20,14 @@
       </div>
     <% end %>
     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 p-5 px-sm-0 mx-auto">
+  <!--< % if @user.is_deleted == false %>-->
+    <!--< %= link_to "利用停止にする",admin_withdraw_path(@user), method: :patch, data: {confirm: "このユーザーを利用停止にしますか？"}, class: 'btn btn-danger' %></p>-->
+  <!--< % end %>-->
+  </div>
   </div>
 </div>

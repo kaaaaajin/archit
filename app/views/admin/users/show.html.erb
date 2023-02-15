@@ -3,6 +3,7 @@
     <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-body">
+          <!--プロフィール写真-->
           <p class="profile_image text-center">
               <%= image_tag @user.get_profile_image(100,100) %>
         　</p>
@@ -10,24 +11,23 @@
             <p class="card-text"><%= @user.introduction %></p>
             
             <% if  @user.name != "guestuser" %>
-               
                <p class="link text-right">
                  <%= link_to edit_admin_user_path(@user), class: "text-dark text-right" do %>
                    <i class="fas fa-user-cog"></i>プロフィール編集
                  <% end %>
                </p>
                <p class ="button text-right">
-                 <%= link_to "このユーザーを削除する",admin_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %>
+                 <%= link_to "このユーザーを削除する",admin_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %></p>
             <% end %>
         </div>
       </div>
     </div>
-
+    <!--ユーザーが投稿した写真一覧-->
     <div class="col-sm-12 col-md-5 col-lg-7 offset-lg-1">
       <div class="photo">
         <% @posts.each do |post| %>
             <%= link_to admin_post_path(post) do %>
-              <%= image_tag post.get_post_image(200, 200) %>
+              <%= image_tag post.get_post_image(200, 200), class: "m-1" %>
             <% end %>
         <% end %>
       </div>

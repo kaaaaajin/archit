@@ -36,6 +36,13 @@ class Admin::UsersController < ApplicationController
         redirect_to admin_users_path
     end
     
+    # def withdraw
+        # @user = User.find(params[:id])
+        # @user.update(is_deleted: true)
+        # reset_session
+        # flash[:notice] = "利用停止処理を実行いたしました"
+        # redirect_to admin_users_path
+    # end
     
     private
     

@@ -10,9 +10,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render "layouts/header" %>
-     <p class="notice"><%= notice %></p>　
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+    <header>
+      <%= render "layouts/header" %>
+    </header>
+    <main class="my-4">
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+      <%= yield %>
+    </main>
+    <footer class="text-black mt-auto border-top border-dark">
+      <div class="container p-4">
+      　　<h2 class="text-center">Archit.</h2>
+      　　<%= link_to "管理者ログイン", new_admin_session_path, class: "text-dark link-secondary" %>
+      </div>
+    </footer>
   </body>
 </html>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
      delete "users/destroy_all" => 'users#destroy_all', as: "destroy_all"
+      # patch 'users/withdraw/:id' => 'users#withdraw', as: "withdraw"
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :posts, only: [:index, :show, :destroy] do
       resources :post_comments, only: [:destroy]

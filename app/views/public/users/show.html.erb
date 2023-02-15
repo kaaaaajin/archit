@@ -3,9 +3,11 @@
     <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-body">
+          <!--プロフィール写真-->
           <p class="profile_image text-center">
               <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
         　</p>
+        　<!--フォローボタン-->
             <div class="text-right">
               <p id="relationship_btn_<%= @user.id %>">
                 <%= render "public/relationships/btn", user: @user %>
@@ -13,11 +15,13 @@
             </div>
             <h6 class="card-title"><%= @user.name %></h6>
             <p class="card-text"><%= @user.introduction %></p>
+          　<!--投稿ボタン-->
             <p class="button text-center mt-2">
               <%= link_to new_post_path, class: "btn btn-secondary w-50" do %>
                 <i class="fas fa-pen"></i> 投稿する
               <% end %>
             </p>
+           <!--投稿数、フォローフォロワー人数-->
     　　   　<table class="table table-borderless text-nowrap">
   　　　　    　　<tr>
                 <td>投稿数</td>
@@ -30,6 +34,7 @@
                 <td><%= link_to @user.followers.count, user_followers_path(@user) %></td>
               </tr>
             </table>
+            <!--お気に入り保存一覧、プロフィール編集-->
             <% if @user == current_user && @user.name != "guestuser" %>
                <p class="link text-right">
                  <%= link_to favorites_users_path, class: "text-dark text-right" do %>
@@ -45,15 +50,16 @@
         </div>
       </div>
     </div>
-
+    <!--ユーザーが投稿した写真一覧-->
     <div class="col-sm-12 col-md-5 col-lg-7 offset-lg-1">
       <div class="photo">
         <% @posts.each do |post| %>
             <%= link_to post_path(post) do %>
-              <%= image_tag post.get_post_image(200, 200) %>
+              <%= image_tag post.get_post_image(200, 200), class: "m-1" %>
             <% end %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<div class="container float-right"><%= paginate @posts %></div> 

@@ -1,7 +1,6 @@
 <div class="container bg-white" >
   <div class="row">
     <div class="col-sm-12 col-lg-6">
-      　
         <div class="info px-4 my-3">
           <%= image_tag @post.user.get_profile_image(50, 50), class: "rounded-circle" %>
         　<%= link_to user_path(@post.user) do %>
@@ -15,7 +14,7 @@
         <!--お気に入り、いいね、コメント用ボタン-->
         <div class="menu d-flex">
           <div id="post_<%= @post.id %>">
-            <p class="favorite-btn mt-2 ml-4"><%= render "public/favorites/btn", post: @post %></p>
+            <p class="favorite-btn m-2 ml-4"><%= render "public/favorites/btn", post: @post %></p>
           </div>
           <div id="post_<%= @post.id %>">
             <p class="like-btn mt-2 ml-4"><%= render "public/likes/btn", post: @post %></p>
@@ -33,7 +32,7 @@
             <li class="list-group-item">所在地<span class="ml-5"><%= @post.address %></span></li>
           </ul>
           <!--googlemap表示場所-->
-          <div class="googlemap center">
+          <div class="googlemap text-center">
             <div id="map"></div>
           </div>
           
@@ -84,7 +83,6 @@
           }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
-
     </div>
     
     <!--コメント-->
@@ -100,6 +98,5 @@
   <div class="row">
     <div class="col align-self-end my-3"><%= paginate @comments %></div>
   </div>
-  
 </div>
 
