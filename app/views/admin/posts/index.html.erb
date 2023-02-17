@@ -13,11 +13,11 @@
   
   <h2 class="text-center mb-3">Posts</h2>
   <div class="row ">
-    <div class="col-sm-12 d-flex flex-wrap">
+    <div class="col-sm-12">
       <!--投稿写真一覧-->
      <% @posts.each do |post| %>
        <%= link_to admin_post_path(post) do %>
-         <%= image_tag post.get_post_image(200, 200), class: "m-2" %>
+         <%= image_tag post.get_post_image(200, 200), class: "img-fluid m-2" %>
        <% end %>
      <% end %>
     </div>
