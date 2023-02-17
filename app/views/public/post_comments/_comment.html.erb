@@ -2,12 +2,15 @@
   <div class="card mt-2">
     <div class="card-body">
       <h5 class="card-title text-left">
+        <!--コメントしたユーザーの名前とプロフ画像-->
         <%= image_tag post_comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
         <%= post_comment.user.name%> 
       </h5>
+      <!--コメント内容-->
       <p class="card-text text-left">
-        <%= post_comment.comment %>
+        <%= simple_format(post_comment.comment) %>
       </p>
+      <!--コメント時間とコメント削除ボタン-->
       <p class="card-link">
          <i class="far fa-clock clock-icon"></i><%= time_ago_in_words(post_comment.created_at) %>前
        <% if post_comment.user == current_user %>

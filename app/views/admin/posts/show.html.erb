@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-lg-6">
         <div class="info px-4 my-3">
+          <!--投稿したユーザーのプロフ画像と名前-->
           <%= image_tag @post.user.get_profile_image(50, 50), class: "rounded-circle" %>
         　<%= link_to admin_user_path(@post.user) do %>
             <%= @post.user.name %>
@@ -11,7 +12,7 @@
         <div class="photo text-center">
            <%= image_tag @post.get_post_image(500, 400) %> 
         </div>
-        
+        <!--コメント数-->
         <div class="menu d-flex ml-4">
           <div id="post_<%= @post.id %>">
             <p class="comments-count">
@@ -23,7 +24,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">建築名<span class="ml-5"><%= @post.architecture %></span></li>
             <li class="list-group-item">建築家<span class="ml-5"><%= @post.architect %></span></li>
-            <li class="list-group-item"><%=@post.body %></li>
+            <li class="list-group-item"><%= simple_format(@post.body) %></li>
             <li class="list-group-item">所在地<span class="ml-5"><%= @post.address %></span></li>
           </ul>
           <!--googlemap表示場所-->

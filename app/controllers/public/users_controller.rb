@@ -29,15 +29,13 @@ class Public::UsersController < ApplicationController
       end
     end
     
-    def withdraw
-        current_user.update(is_deleted: true)
-        reset_session
-        flash[:notice] = "退会処理を実行いたしました"
-        redirect_to root_path
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        redirect_to root_path, notice: "退会処理を実行いたしました"
     end
     
     def unsubscribe
-      
     end
     
     def favorites

@@ -28,7 +28,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">建築名<span class="ml-5"><%= @post.architecture %></span></li>
             <li class="list-group-item">建築家<span class="ml-5"><%= @post.architect %></span></li>
-            <li class="list-group-item mr-2"><%=@post.body %></li>
+            <li class="list-group-item mr-2"><%= simple_format(@post.body) %></li>
             <li class="list-group-item">所在地<span class="ml-5"><%= @post.address %></span></li>
           </ul>
           <!--googlemap表示場所-->

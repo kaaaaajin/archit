@@ -7,9 +7,10 @@
           <p class="profile_image text-center">
               <%= image_tag @user.get_profile_image(100,100) %>
         　</p>
+        　<!--ユーザーの名前と紹介-->
             <h6 class="card-title"><%= @user.name %></h6>
-            <p class="card-text"><%= @user.introduction %></p>
-            
+            <p class="card-text"><%= simple_format(@user.introduction) %></p>
+            <!--編集ページのリンクとユーザー削除ボタン-->
             <% if  @user.name != "guestuser" %>
                <p class="link text-right">
                  <%= link_to edit_admin_user_path(@user), class: "text-dark text-right" do %>
@@ -17,7 +18,7 @@
                  <% end %>
                </p>
                <p class ="button text-right">
-                 <%= link_to "このユーザーを削除する",admin_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %></p>
+                 <%= link_to "このユーザーを削除する",admin_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger btn-sm' %></p>
             <% end %>
         </div>
       </div>

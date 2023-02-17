@@ -18,7 +18,7 @@ class Admin::UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
       if @user.update(user_params)
-         redirect_to user_path(current_user), notice: "会員情報を更新しました"
+         redirect_to admin_user_path(@user), notice: "会員情報を更新しました"
       else
          render "edit", alert: "更新に失敗しました"
       end
@@ -36,13 +36,6 @@ class Admin::UsersController < ApplicationController
         redirect_to admin_users_path
     end
     
-    # def withdraw
-        # @user = User.find(params[:id])
-        # @user.update(is_deleted: true)
-        # reset_session
-        # flash[:notice] = "利用停止処理を実行いたしました"
-        # redirect_to admin_users_path
-    # end
     
     private
     

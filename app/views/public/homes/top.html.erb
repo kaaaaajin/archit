@@ -1,18 +1,18 @@
-<div class='container'>
-  <div class='row text-center'>
+<div class="container">
+  <div class="row text-center">
     <div class="col-sm-12 col-md-10 col-lg-7 py-5 mx-auto m-5 bg-white">
       <h1 class="title">Archit.</h1>
         <p class="mt-4">Archit.(アージェ)は、世界中の素晴らしい建築を写真で共有するSNSです</p>
           <p>あなたの好きな建築写真を投稿し、旅行や建築好きな方と繋がろう！</p>
-            <div class="mt-4"><%= link_to "ログイン", new_user_session_path, class: "btn btn-secondary rounded-0 w-50"%></div>
-            <div class="mt-4"> <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary rounded-0 w-50"%></div>
-            <div class="mt-4"><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-light rounded-0 w-50", method: :post%></div>
+            <div class="mt-4"><%= link_to "ログイン", new_user_session_path, class: "btn btn-secondary rounded-0 w-50" %></div>
+            <div class="mt-4"> <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary rounded-0 w-50" %></div>
+            <div class="mt-4"><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-light rounded-0 w-50", method: :post %></div>
     </div>
   </div>
 <!--新着投稿４件表示-->
   <div class="row">
-   <i class="far fa-star fa-spin fa-1x mr-2"></i><span>NEW POST</span><i class="far fa-star fa-spin fa-1x ml-2"></i>
-      <div class="col-12 d-flex justify-content-center">
+   <i class="fas fa-star fa-spin fa-1x mr-2" style="color: yellow;"></i><span> NEW POST</span><i class="fas fa-star fa-spin fa-1x ml-2" style="color: yellow;"></i>
+      <div class="col-sm-12 d-flex justify-content-center">
         <% @posts.each do |post| %>
           <div class="pickup-img mr-2">
             <p><%= image_tag post.get_post_image(200, 200) %></p>
