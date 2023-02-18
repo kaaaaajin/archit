@@ -13,6 +13,7 @@
                 <%= render "public/relationships/btn", user: @user %>
               </p>
             </div>
+          <!--ユーザー名、紹介文-->
             <h6 class="card-title"><%= @user.name %></h6>
             <p class="card-text"><%= simple_format(@user.introduction) %></p>
           　<!--投稿ボタン-->
@@ -51,15 +52,15 @@
       </div>
     </div>
     <!--ユーザーが投稿した写真一覧-->
-    <div class="col-sm-12 col-md-5 col-lg-7 offset-lg-1">
-      <div class="photo">
         <% @posts.each do |post| %>
+           <div class="col-sm-12 col-md-3 col-lg-3">
             <%= link_to post_path(post) do %>
-              <%= image_tag post.get_post_image(200, 200), class: "img-fluid m-1" %>
+              <%= image_tag post.get_post_image(200, 200), class: "img-fluid m-1 w-100" %>
             <% end %>
+          </div>
         <% end %>
-      </div>
-    </div>
+      
+    
   </div>
 </div>
 <div class="container float-right"><%= paginate @posts %></div> 
