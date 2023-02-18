@@ -35,12 +35,15 @@
               </tr>
             </table>
             <!--お気に入り保存一覧、プロフィール編集-->
+            <% if @user == current_user %>
+            <p class="link text-right">
+              <%= link_to favorites_users_path, class: "text-dark text-right" do %>
+                <i class="fas fa-bookmark fa-lg"></i>お気に入り保存
+              <% end %>
+            </p>
+            <% end %>
             <% if @user == current_user && @user.name != "guestuser" %>
-               <p class="link text-right">
-                 <%= link_to favorites_users_path, class: "text-dark text-right" do %>
-                   <i class="fas fa-bookmark fa-lg"></i>お気に入り保存
-                 <% end %>
-               </p>
+              
                <p class="link text-right">
                  <%= link_to edit_user_path(@user), class: "text-dark text-right" do %>
                    <i class="fas fa-user-cog fa-lg"></i>プロフィール編集

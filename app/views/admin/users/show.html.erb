@@ -8,6 +8,9 @@
               <%= image_tag @user.get_profile_image(100,100) %>
         　</p>
         　<!--ユーザーの名前と紹介-->
+        　   <% unless @user.is_deleted == false %>
+              <div class="text-center text-danger">利用停止中のユーザーです</div>
+            <% end %>
             <h6 class="card-title"><%= @user.name %></h6>
             <p class="card-text"><%= simple_format(@user.introduction) %></p>
             <!--編集ページのリンクとユーザー削除ボタン-->
@@ -20,6 +23,7 @@
                <p class ="button text-right">
                  <%= link_to "このユーザーを削除する",admin_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger btn-sm' %></p>
             <% end %>
+
         </div>
       </div>
     </div>
