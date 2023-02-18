@@ -28,10 +28,8 @@
                 <td>フォロー</td>
                 <td>フォロワー</td>
               </tr>
-              <tr class="count text-center">
-                <td><%= @user.posts.count %></td>
-                <td><%= link_to @user.followings.count, user_followings_path(@user) %></td>
-                <td><%= link_to @user.followers.count, user_followers_path(@user) %></td>
+              <tr id="follow_count_<%= @user.id %>">
+                <%= render "public/users/follow_count", user: @user %>
               </tr>
             </table>
             <!--お気に入り保存一覧、プロフィール編集-->
@@ -43,7 +41,6 @@
             </p>
             <% end %>
             <% if @user == current_user && @user.name != "guestuser" %>
-              
                <p class="link text-right">
                  <%= link_to edit_user_path(@user), class: "text-dark text-right" do %>
                    <i class="fas fa-user-cog fa-lg"></i>プロフィール編集

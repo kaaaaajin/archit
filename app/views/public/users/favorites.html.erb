@@ -3,10 +3,14 @@
    <h2 class="text-center mb-3">Favorites</h2>
   <div class="row ">
     <div class="col-sm-12 d-flex flex-wrap">
-      <% @favorites_list.each  do |list| %>
-        <%= link_to post_path(list) do %>
-          <%= image_tag list.get_post_image(200, 200), class: "m-2" %>
+      <% if @favorites_list.present? %>
+        <% @favorites_list.each  do |list| %>
+          <%= link_to post_path(list) do %>
+            <%= image_tag list.get_post_image(200, 200), class: "m-2" %>
+          <% end %>
         <% end %>
+      <% else %>
+        <p>お気に入り保存している投稿はありません</p>
       <% end %>
    </div>
   </div>
