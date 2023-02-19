@@ -1,0 +1,9 @@
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <%= link_to post_path(post) do %>
+        <%= image_tag post.get_post_image(200, 200), class: "img-fluid m-1 w-100" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

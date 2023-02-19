@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4">
+    <div class="col-sm-12 col-md-5 col-lg-4">
       <div class="card">
         <div class="card-body">
           <!--プロフィール写真-->
           <p class="profile_image text-center">
-              <%= image_tag @user.get_profile_image(100,100) %>
+              <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
         　</p>
         　　<!--利用停止のユーザーであれば表示-->
         　<% unless @user.is_deleted == false %>
@@ -14,7 +14,7 @@
           <!--ユーザーの名前と紹介-->
           <h6 class="card-title"><%= @user.name %></h6>
           <p class="card-text"><%= simple_format(@user.introduction) %></p>
-          <!--編集ページのリンクとユーザー削除ボタン-->
+          <!--プロフィール編集・削除ボタン-->
           <% if  @user.name != "guestuser" %>
             <p class="link text-right">
               <%= link_to edit_admin_user_path(@user), class: "text-dark text-right" do %>
@@ -28,13 +28,11 @@
       </div>
     </div>
     <!--ユーザーが投稿した写真一覧-->
-    <% @posts.each do |post| %>
-      <div class="col-sm-12 col-md-3 col-lg-3">
-        <%= link_to admin_post_path(post) do %>
-          <%= image_tag post.get_post_image(200, 200), class: "img-fluid m-1 w-100" %>
-        <% end %>
-      </div>
-    <% end %>
-      </div>
+    <div class="col-sm-12 col-md-6 col-lg-7">
+      <%= render "public/users/user_posts", posts: @posts %>
+    </div>
   </div>
+</div>
+<div class="container mt-4">
+  <div class="row justify-content-center"><%= paginate @posts %></div>
 </div>
