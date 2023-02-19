@@ -6,5 +6,8 @@
          <%= render "public/relationships/follow_index",users: @users %>
     </div>
   </div>
-  <div class="row text-center"><%= paginate @users %></div> 
 </div> 
+<!--ページネーション-->
+<div class="container mt-4">
+  <div class="row justify-content-center"><%= paginate @users %></div>
+</div>
