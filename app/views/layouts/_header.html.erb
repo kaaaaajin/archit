@@ -37,6 +37,9 @@
               <!--どちらでもなければログイン画面と新規登録画面のリンクを-->
             <% else %>
               <li class="nav-item mr-2">
+                <%= link_to "About", about_path ,class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item mr-2">
                 <%= link_to "Sign up", new_user_registration_path ,class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item mr-2">
