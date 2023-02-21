@@ -29,12 +29,13 @@ RSpec.describe Post, type: :system do
     end
     context "投稿処理のテスト" do
       it "投稿後のリダイレクト先は正しいか" do
+        attach_file "post[post_image]", 'spec/factories/test_image.jpg'
         fill_in 'post[architecture]', with: Faker::Lorem.characters(number:10)
         fill_in 'post[architect]', with: Faker::Name.name  
         fill_in 'post[address]', with: Faker::Address.full_address
         fill_in 'post[body]', with: Faker::Lorem.characters(number:20)
         click_button "投稿する"
-        # expect(page).to have_current_path postk_path(Post.last)
+         expect(page).to have_current_path post_path(Post.last)
       end
     end
   end
@@ -45,8 +46,10 @@ RSpec.describe Post, type: :system do
     end
     # context "表示の確認" do
       # it "投稿した画像が表示されているか" do
-        # expect(page).to have_link 'test_user', href: 'user_path(@user)'
-      # end    
+        # click_link post.post_image
+        # visit post_path(post)
+      # end
+    # end
   end
   
   describe "投稿詳細画面のテスト" do
@@ -54,9 +57,13 @@ RSpec.describe Post, type: :system do
       visit post_path(post)
     end
     context "表示の確認" do
-      # it "名前のリンクが存在しているか" do
-        # expect(page).to have_link 'test_user', href: 'user_path(@user)'
-      # end
+      it "名前のリンクが存在しているか" do
+        click_link post.user.name
+        visit user_path(@user)
+      end
+      it "投稿した画像が表示されているか" do
+        expect(page).to have_selector ("img[src$='test_image.jpg']")
+      end
       it "削除リンクが存在しているか" do
         expect(page).to have_link "削除"
       end
