@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe "投稿のテスト" do
-  let!(:post) { create(:post, architecture: 'hoge',architect: 'name',address: 'hoge',body: 'body') }
+RSpec.describe Post, type: :system do
+  let!(:post) { create(:post, architecture: 'hoge',architect: 'name',address: 'hoge',body: 'body',) }
   describe "投稿フォーム(new_post_path)のテスト" do
     before do
       visit new_post_path

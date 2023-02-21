@@ -4,8 +4,8 @@
         <div class="info px-4 my-3">
           <!--投稿したユーザーのプロフ画像と名前-->
           <%= image_tag @post.user.get_profile_image(50, 50), class: "rounded-circle" %>
-        　<%= link_to admin_user_path(@post.user) do %>
-            <%= @post.user.name %>
+            <%= link_to admin_user_path(@post.user) do %>
+              <%= @post.user.name %>
           <% end %> 
         </div>
          <!--投稿写真-->

@@ -1,7 +1,0 @@
-<% posts.each do |post| %>
-  <div class="col-lg-3 col-md-4 col-sm-12">
-    <%= link_to admin_post_path(post) do %>
-      <%= image_tag post.get_post_image(200, 200), class: "img-fluid m-2 w-100" %>
-    <% end %>
-  </div>
-<% end %>

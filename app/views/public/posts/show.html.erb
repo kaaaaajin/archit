@@ -3,9 +3,9 @@
     <div class="col-sm-12 col-lg-6">
         <div class="info px-4 my-3">
           <%= image_tag @post.user.get_profile_image(50, 50), class: "rounded-circle" %>
-        　<%= link_to user_path(@post.user) do %>
-            <%= @post.user.name %>
-          <% end %> 
+            <%= link_to user_path(@post.user) do %>
+              <%= @post.user.name %>
+            <% end %> 
         </div>
         <!--投稿写真-->
         <div class="photo text-center">
@@ -23,7 +23,7 @@
             <span class="comments-count ml-3"><%= render "public/post_comments/count", post: @post %></span>
           </div>
         </div>
-　　　　<!--投稿情報-->
+        <!--投稿情報-->
         <div class ="architectural">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">建築名<span class="ml-5"><%= @post.architecture %></span></li>
@@ -39,7 +39,7 @@
           <div class="time text-right mt-2 p-3">
             <i class="far fa-clock clock-icon"></i><%= time_ago_in_words(@post.created_at) %>前
           </div>
-　　　　　<!--投稿-->
+          <!--投稿-->
           <div class= "link text-right p-3">
              <% if @post.user == current_user %> 
                <%= link_to edit_post_path, class: "text-dark text-right" do %>

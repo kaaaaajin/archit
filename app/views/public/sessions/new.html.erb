@@ -9,14 +9,12 @@
             </div>
             <%= f.email_field :email, autofocus: true, class: "form-control w-50", placeholder: "メールアドレス" %>
           </div>
-
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-lock"></i></span>
             </div>
             <%= f.password_field :password, autocomplete: "off", class: "form-control w-50", placeholder: "パスワード" %>
           </div>
-
           <% if devise_mapping.rememberable? %>
             <div class="field text-left">
               <%= f.check_box :remember_me %>

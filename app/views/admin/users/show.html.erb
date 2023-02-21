@@ -6,9 +6,9 @@
           <!--プロフィール写真-->
           <p class="profile_image text-center">
               <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
-        　</p>
-        　　<!--利用停止のユーザーであれば表示-->
-        　<% unless @user.is_deleted == false %>
+          </p>
+          <!--利用停止のユーザーであれば表示-->
+          <% unless @user.is_deleted == false %>
             <div class="text-center text-danger">利用停止中のユーザーです</div>
           <% end %>
           <!--ユーザーの名前と紹介-->
@@ -21,15 +21,23 @@
                 <i class="fas fa-user-cog"></i>プロフィール編集
               <% end %>
             </p>
-            <p class ="button text-right">
-              <%= link_to "このユーザーを削除する",admin_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger btn-sm' %></p>
+            <p class ="button text-center">
+              <%= link_to "このユーザーを削除する",admin_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger btn-sm mt-3' %></p>
           <% end %>
         </div>
       </div>
     </div>
     <!--ユーザーが投稿した写真一覧-->
     <div class="col-sm-12 col-md-6 col-lg-7">
-      <%= render "public/users/user_posts", posts: @posts %>
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <%= link_to admin_post_path(post) do %>
+              <%= image_tag post.get_post_image(200, 200), class: "img-fluid m-1 w-100" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
