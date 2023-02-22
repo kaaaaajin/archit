@@ -18,8 +18,9 @@ class Post < ApplicationRecord
      end
      
      def self.ransackable_associations(auth_object = nil)
-       [ ]
+       ["post_comments"]
      end
+     
      # お気に入り保存しているか判定
      def favorite_by?(user)
           favorites.exists?(user_id: user.id)
