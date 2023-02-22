@@ -8,16 +8,16 @@ Rails.application.routes.draw do
  # 会員用
   devise_for :users, skip:[:passwords], controllers: {
   registrations: "public/registrations",
-  sessions: 'public/sessions'
+  sessions: "public/sessions"
   }
   
   # ゲストログイン用
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+    post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
   end
   
   namespace :admin do
-     delete "users/destroy_all" => 'users#destroy_all', as: "destroy_all"
+     delete "users/destroy_all" => "users#destroy_all", as: "destroy_all"
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :posts, only: [:index, :show, :destroy] do
       resources :post_comments, only: [:destroy]

@@ -1,7 +1,7 @@
 <header>
       <nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark">
         <div class="container">
-          <a class="navbar-brand" href="/"><%= image_tag 'logo.png', size: '80x80' %></a>
+          <a class="navbar-brand" href="/"><%= image_tag "logo.png", size: "80x80" %></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -10,40 +10,40 @@
               <!--管理者がログインしていれば表示-->
             <% if admin_signed_in? %>
               <li class="nav-item mr-2">
-                <%= link_to "Users", admin_users_path, class: 'nav-link text-dark'%>
+                <%= link_to "Users", admin_users_path, class: "nav-link text-dark" %>
                 
               </li>
               <li class="nav-item mr-2">
-                <%=  link_to "Posts", admin_posts_path, class: 'nav-link text-dark'%>
+                <%=  link_to "Posts", admin_posts_path, class: "nav-link text-dark"%>
               </li>
               <li class="nav-item mr-2">
-                <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+                <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %>
               </li>
               <!--ユーザーがログインしていれば表示-->
             <% elsif user_signed_in? %>
               <li class="nav-item mr-2">
-                <%= link_to "Mypage", user_path(current_user), class: 'nav-link text-dark' %>
+                <%= link_to "Mypage", user_path(current_user), class: "nav-link text-dark" %>
                 
               </li>
               <li class="nav-item mr-2">
-                <%= link_to "Users", users_path, class: 'nav-link text-dark' %>
+                <%= link_to "Users", users_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item mr-2">
-                <%= link_to "Posts", posts_path, class: 'nav-link text-dark' %>
+                <%= link_to "Posts", posts_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item mr-2">
-                <%= link_to " Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+                <%= link_to " Log out", destroy_user_session_path, method: :delete, class: "nav-link text-dark" %>
               </li>
               <!--どちらでもなければログイン画面と新規登録画面のリンクを-->
             <% else %>
               <li class="nav-item mr-2">
-                <%= link_to "About", about_path ,class: 'nav-link text-dark' %>
+                <%= link_to "About", about_path ,class: "nav-link text-dark" %>
               </li>
               <li class="nav-item mr-2">
-                <%= link_to "Sign up", new_user_registration_path ,class: 'nav-link text-dark' %>
+                <%= link_to "Sign up", new_user_registration_path ,class: "nav-link text-dark" %>
               </li>
               <li class="nav-item mr-2">
-                <%= link_to "Log in", new_user_session_path ,class: 'nav-link text-dark' %>
+                <%= link_to "Log in", new_user_session_path ,class: "nav-link text-dark" %>
               </li>
             <% end %>
             </ul>
