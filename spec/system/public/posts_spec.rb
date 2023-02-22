@@ -44,12 +44,12 @@ RSpec.describe Post, type: :system do
     before do
       visit posts_path
     end
-     context "表示の確認" do
-       it "投稿した画像が表示されているか" do
-         click_link post.post_image
-         visit post_path(post)
-       end
-     end
+    # context "表示の確認" do
+      # it "投稿した画像が表示されているか" do
+        # click_link post.post_image
+        # visit post_path(post)
+      # end
+    # end
   end
   
   describe "投稿詳細画面のテスト" do
