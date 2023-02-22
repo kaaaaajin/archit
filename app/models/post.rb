@@ -13,7 +13,13 @@ class Post < ApplicationRecord
      geocoded_by :address
      after_validation :geocode
      
+     def self.ransackable_attributes(auth_object = nil)
+       ["address", "architect", "architecture", "body"]
+     end
      
+     def self.ransackable_associations(auth_object = nil)
+       [ ]
+     end
      # お気に入り保存しているか判定
      def favorite_by?(user)
           favorites.exists?(user_id: user.id)
