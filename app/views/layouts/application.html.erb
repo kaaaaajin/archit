@@ -14,8 +14,12 @@
       <%= render "layouts/header" %>
     </header>
     <main class="my-4">
-      <%= flash[:notice] %>
-      <%= flash[:alert] %>
+      <% if flash[:notice] %>
+        <p class="alert alert-success mx-2"><%= notice %></p>
+      <% elsif flash[:alert] %>
+        <p class="alert alert-danger mx-2"><%= alert %></p>
+      <% end %>
+    
       <%= yield %>
     </main>
     <footer class="mt-auto border-top border-dark">
