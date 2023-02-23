@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 col-lg-6 mx-auto my-3">
       <!--ユーザー検索用-->
-      <%= search_form_for @q, url: admin_users_path do |f| %>
+      <%= search_form_for @search, url: admin_users_path do |f| %>
         <div class="input-group">
           <%= f.search_field :name_cont, class: "form-control" ,placeholder: "ユーザー名" %>
             <span class="input-group-btn">

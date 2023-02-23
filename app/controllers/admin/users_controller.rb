@@ -2,8 +2,8 @@ class Admin::UsersController < ApplicationController
     before_action :authenticate_admin!
     
     def index
-        @q = User.ransack(params[:q])
-        @users = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
+        @search = User.ransack(params[:q])
+        @users = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
     end
     
     def show

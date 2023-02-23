@@ -2,8 +2,8 @@ class Admin::PostsController < ApplicationController
     before_action :authenticate_admin!
     
     def index
-        @q = Post.ransack(params[:q])
-        @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
+        @search = Post.ransack(params[:q])
+        @posts = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
     end
     
     def show

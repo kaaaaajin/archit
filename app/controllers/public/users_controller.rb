@@ -4,8 +4,8 @@ class Public::UsersController < ApplicationController
      before_action :ensure_correct_user, only: [:edit, :update]
     
     def index
-        @q = User.ransack(params[:q])
-        @users = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
+        @search = User.ransack(params[:q])
+        @users = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
         @post = Post.new
     
     end
