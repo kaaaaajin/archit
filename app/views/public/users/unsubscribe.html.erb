@@ -6,7 +6,7 @@
             再度ご利用いただく場合、新規登録のお手続きが必要となります</br>
             退会する場合は、「退会する」をクリックしてください</p>
       <div class="button">
-        <%= link_to '退会しない', user_path(current_user), class: "btn btn-primary mr-4" %>
+        <%= link_to "退会しない", user_path(current_user), class: "btn btn-primary mr-4" %>
         <%= link_to "退会する", user_path(current_user), method: :delete, class: "btn btn-danger ml-4" %>
       </div>
     </div>

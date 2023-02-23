@@ -13,6 +13,7 @@ class Post < ApplicationRecord
      geocoded_by :address
      after_validation :geocode
      
+     # Ransack
      def self.ransackable_attributes(auth_object = nil)
        ["address", "architect", "architecture", "body"]
      end
@@ -31,6 +32,7 @@ class Post < ApplicationRecord
           likes.exists?(user_id: user.id)
      end
      
+     # 投稿画像のリサイズ
      def get_post_image(width, height)
        if post_image.attached?
           post_image.variant(resize_to_fill: [width, height]).processed
