@@ -9,7 +9,6 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body class="d-flex flex-column vh-100">
     <header>
       <%= render "layouts/header" %>
@@ -21,8 +20,8 @@
     </main>
     <footer class="mt-auto border-top border-dark">
       <div class="container p-3">
-      　　<h2 class="text-center">Archit.</h2>
-      　　<div class="admin text-right"><%= link_to "管理者ログイン", new_admin_session_path, class: "text-dark link-secondary" %></div>
+        <h2 class="text-center">Archit.</h2>
+      　  <div class="admin text-right"><%= link_to "管理者ログイン", new_admin_session_path, class: "text-dark link-secondary" %></div>
       </div>
     </footer>
   </body>

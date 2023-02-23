@@ -74,14 +74,15 @@
     </div>
 
        <!--コメント-->
-       <div class="col-lg-6 text-right pr-4">
-        <div id="post_<%= @post.id %>">
-          <div class="post_comments mt-4">
-              <%= render "admin/post_comments/comment",post: @post, post_comments: @comments, post_comment: @post_comment %>
-          <div>
+    <div class="col-lg-6 text-right pr-4">
+      <div id="post_<%= @post.id %>">
+        <div class="post_comments mt-4">
+          <%= render "admin/post_comments/comment",post: @post, post_comments: @comments, post_comment: @post_comment %>
         </div>
+      </div>
     </div>
   </div>
+  <!--ページネーション-->
   <div class="row">
     <div class="col align-self-end my-3"><%= paginate @comments %></div>
   </div>
