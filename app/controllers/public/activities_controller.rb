@@ -6,14 +6,5 @@ class Public::ActivitiesController < ApplicationController
       
   end
   
-  def read
-    current_user.activities
-    
-  
-  end
-  
 
-
-  
-  
 end
