@@ -14,11 +14,14 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites,  dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :activities, dependent: :destroy
   
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
+  
+  
   
   # ゲストユーザーの情報
   def self.guest
@@ -52,7 +55,7 @@ class User < ApplicationRecord
     self.followings.include?(user)
   end
   
-  # Ransack
+  # Ransackユーザー
   def self.ransackable_attributes(auth_object = nil)
     ["name"]
   end

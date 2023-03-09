@@ -180,3 +180,14 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+    
+  enums:
+    activity:
+      action_type:
+        liked_post: "投稿にいいねしました"
+        followed_me: "あなたをフォローしました"
+        commented_post: "投稿にコメントしました"   
+          
+ 
+  
+    

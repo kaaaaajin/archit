@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
   end
   
+  # 管理者用
   namespace :admin do
      delete "users/destroy_all" => "users#destroy_all", as: "destroy_all"
     resources :users, only: [:index, :show, :edit, :update, :destroy]
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     end
   end
   
+  # 会員用
   scope module: :public do
      root "homes#top"
      get "homes/about" => "homes#about", as: "about"
@@ -41,12 +43,7 @@ Rails.application.routes.draw do
         resource :favorites, only: [:create, :destroy]
         resource :likes, only: [:create, :destroy]
     end 
-    
-    
+    resources :activities, only: [:index] 
   end
-    
-     
-      
 
-  
 end

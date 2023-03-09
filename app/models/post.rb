@@ -38,7 +38,6 @@ class Post < ApplicationRecord
           post_image.variant(resize_to_fill: [width, height]).processed
        end
      end
-     
     
 end
 

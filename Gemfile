@@ -59,6 +59,7 @@ gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'ransack'
 gem 'kaminari'
+gem 'enum_help'
 gem 'geocoder'
 gem 'dotenv-rails'
 group :production do

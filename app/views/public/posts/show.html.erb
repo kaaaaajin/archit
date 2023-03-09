@@ -19,7 +19,7 @@
           <div id="post_<%= @post.id %>">
             <p class="like-btn mt-2 ml-4"><%= render "public/likes/btn", post: @post %></p>
           </div>
-          <div id="post_<%= @post.id %>">
+          <div id="post_<%@post.id %>">
             <span class="comments-count ml-3"><%= render "public/post_comments/count", post: @post %></span>
           </div>
         </div>
