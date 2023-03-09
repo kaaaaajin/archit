@@ -91,6 +91,8 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -285,6 +287,7 @@ DEPENDENCIES
   capybara
   devise
   dotenv-rails
+  enum_help
   factory_bot_rails
   faker
   geocoder

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-6 mx-auto my-3">
+<h2 class="text-center mb-3">通知一覧 <span><i class="fas fa-bell"></i></span></h2>
+      <table class="table table-hover text-center">
+        <% if @activities.present? %>
+        <tbody>
+ 
+          <% @activities.each do |activity| %>
+              <tr>
+                <td><%= render "#{activity.action_type}", activity: activity %></td>
+                <td></td>
+              </tr>
+       
+         <% end %>
+　　　　<% else %>
+    　　　通知はありません
+　　　　<% end %>
+　　　　
+        </tbody>
+      </table>
+    </div> 
+  </div>
+</div>

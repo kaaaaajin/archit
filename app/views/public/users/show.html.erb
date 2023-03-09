@@ -33,13 +33,18 @@
                 <%= render "public/users/follow_count", user: @user %>
               </tr>
            </table>
-            <!--お気に入り保存一覧-->
             <% if @user == current_user %>
-              <p class="link text-right">
-                <%= link_to favorites_users_path, class: "text-dark" do %>
-                  <i class="fas fa-bookmark fa-lg"></i>お気に入り保存
+             <!--お気に入り保存一覧-->
+             <p class="link text-right">
+               <%= link_to activities_path, class: "text-dark" do %>
+                 <i class="fas fa-bell fa-lg"></i>通知一覧
+               <% end %>
+             </p>
+             <p class="link text-right">
+               <%= link_to favorites_users_path, class: "text-dark" do %>
+                 <i class="fas fa-bookmark fa-lg"></i>お気に入り保存
                 <% end %>
-              </p>
+             </p>
             <% end %>
             <!--プロフィール編集-->
             <% if @user == current_user && @user.name != "guestuser" %>
