@@ -1,18 +1,5 @@
+<%= link_to activity.subject.user.name, user_path(activity.subject.user) %>さんがあなたの
+<%= link_to "投稿",post_path(activity.subject.post) %>にコメントしました<br>
+<%= activity.subject.comment.truncate(10) %>
 
-<object>
-  <%= link_to activity.subject.user.name, user_path(activity.subject.user) %>
-</object>
-<object>
-    さんがあなたの
-</object>
-<object>
-  <%= link_to "投稿",post_path(activity.subject.post) %>
-</object>
-<object>
-  にコメントしました
-  <i class="far fa-clock clock-icon ml-5"></i><%= time_ago_in_words(activity.created_at) %>前
-    </object>
-  <object>
-  <%= activity.subject.comment.truncate(10) %>
-  </object>
 

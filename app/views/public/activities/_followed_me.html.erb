@@ -1,9 +1,4 @@
-<object>
-  <%= link_to activity.subject.follower.name, user_path(activity.subject.follower) %>
-</object>
-<object>
-    さんがあなたをフォローしました
-      <i class="far fa-clock clock-icon ml-5"></i><%= time_ago_in_words(activity.created_at) %>前
-</object>
+<%= link_to activity.subject.follower.name, user_path(activity.subject.follower) %>さんがあなたをフォローしました
+
   
 

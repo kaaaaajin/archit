@@ -15,11 +15,11 @@ class Public::RelationshipsController < ApplicationController
   
   def followings
     user = User.find(params[:user_id])
-    @users = user.followings.order(created_at: :desc).page(params[:page])
+    @users = user.followings.includes(profile_image_attachment:[:blob]).order(created_at: :desc).page(params[:page])
   end
   
   def followers
     user = User.find(params[:user_id])
-    @users = user.followers.order(created_at: :desc).page(params[:page])
+    @users = user.followers.includes(profile_image_attachment:[:blob]).order(created_at: :desc).page(params[:page])
   end
 end

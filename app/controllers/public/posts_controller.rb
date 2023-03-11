@@ -17,7 +17,7 @@ class Public::PostsController < ApplicationController
     end
     
     def index
-        @search = Post.ransack(params[:q])
+        @search = Post.includes(post_image_attachment:[:blob]).ransack(params[:q])
         @posts = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
         
     end

@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
     before_action :authenticate_admin!
     
     def index
-        @search = User.ransack(params[:q])
+        @search = User.includes(profile_image_attachment:[:blob]).ransack(params[:q])
         @users = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
     end
     
