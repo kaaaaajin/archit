@@ -30,6 +30,7 @@ Rails.application.routes.draw do
      root "homes#top"
      get "homes/about" => "homes#about", as: "about"
      get "users/unsubscribe" => "users#unsubscribe"
+     get "posts/search" => "posts#search"
     resources :users, only: [:index, :show, :edit, :update, :destroy] do
       resource :relationships, only: [:create, :destroy]
   	  get "followings" => "relationships#followings", as: "followings"

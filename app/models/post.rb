@@ -38,6 +38,17 @@ class Post < ApplicationRecord
           post_image.variant(resize_to_fill: [width, height]).processed
        end
      end
+     
+     def self.sort_by_date(selection)
+       case selection
+         when "new"
+           return order(created_at: :desc)
+         when "old"
+           return order(created_at: :asc)
+     #    when "likes"
+          #  return find.(Like.group(:post_id).order)
+       end 
+     end
     
 end
 

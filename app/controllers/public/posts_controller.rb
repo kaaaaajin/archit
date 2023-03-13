@@ -19,7 +19,7 @@ class Public::PostsController < ApplicationController
     def index
         @search = Post.includes(post_image_attachment:[:blob]).ransack(params[:q])
         @posts = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
-        
+        @post_ids = @posts.map{ |post| post.id }
     end
     
     def show
@@ -46,6 +46,14 @@ class Public::PostsController < ApplicationController
         @post.destroy
         redirect_to posts_path
     end
+    
+    def search
+        selection = params[:keyword]
+        @posts = Post.includes(post_image_attachment:[:blob]).where(id: params[:post_ids].split)
+        @posts = @posts.sort_by_date(selection).page(params[:page])
+        
+    end
+    
     
     private
     
