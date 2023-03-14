@@ -1,7 +1,11 @@
-  <%= form_with model: @post, url: posts_path , method: :get, local: true do |f| %>
-    <%= f.select :keyword, [ [ "投稿が新しい順": '"updated_at desc'], 
-                             [ "投稿が古い順": "updated_at asc" ],
-                             [ "いいねが多い順": "like_count desc" ],
-                           ] %>
-    <%= f.submit %>
-  <% end %>                
+<%= form_with url: posts_search_path, method: :get, local: false do |f| %>
+  <%= hidden_field_tag :post_ids, @post_ids %>
+  <div class="row" id="select_box">
+    <div class="col-xs-6">
+      <%=f.select :keyword, [ ["投稿が新しい順", "new"],["投稿が古い順", "old"] ], {},class: "form-control form-control-sm" %>
+    </div>
+    <div class="col-xs-4 select_btn">
+      <%= f.submit "並び替え"%>
+    </div>
+  </div>  
+<% end %>

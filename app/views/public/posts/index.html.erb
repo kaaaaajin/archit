@@ -8,20 +8,15 @@
            <span class="input-group-btn"><%= f.submit "検索", class: "btn btn-primary" %></span>
        </div>
      <% end %>
-     
     </div>
   </div>
+
+   <%= render "public/posts/sort",post: @post %>
   
     <h2 class="text-center mb-3">Posts <span><i class="fas fa-camera"></i></span></h2>
-  <div class="row">
+  <div class="row" id="posts_wrapper">
     <!--投稿写真一覧-->
-    <% @posts.each do |post| %>
-      <div class="col-lg-3 col-md-4 col-sm-12">
-        <%= link_to post_path(post) do %>
-          <%= image_tag post.get_post_image(200, 200), id: 'architect-photo', class: "img-fluid m-2 w-100" %>
-        <% end %>
-      </div>
-    <% end %>
+    <%= render "public/posts/index",posts: @posts %>
   </div>
 </div>
 <!--ページネーション-->
