@@ -1,12 +1,12 @@
 <%= form_with url: posts_search_path, method: :get, local: false do |f| %>
   <%= hidden_field_tag :post_ids, @post_ids %>
   <div class="row">
-    <div class="col-xs-6" id="posts-select">
+    <div class="col-xs-6">
       <%=f.select :keyword, [ ["投稿が新しい順", "new"],["投稿が古い順", "old"],["いいねが多い順", "likes"] ], {},class: "form-control form-control-sm" %>
     </div>
-    <div class="col-xs-4" id="select-btn">
-      <%= f.submit "並び替え" %>
+    <div class="col-xs-4">
+      <%= f.submit "並び替え", class: "btn btn-primary btn-sm" %>
     </div>
-  </div>  
+  </div>
 <% end %>
 
