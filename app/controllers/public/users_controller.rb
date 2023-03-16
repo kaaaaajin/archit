@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
     
     def show
         @user = User.find(params[:id])
-        @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(9)
+        @posts = @user.posts.includes(post_image_attachment:[:blob]).order(created_at: :desc).page(params[:page]).per(9)
         
     end
     
