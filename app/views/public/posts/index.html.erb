@@ -10,10 +10,10 @@
      <% end %>
     </div>
   </div>
-
-   <%= render "public/posts/sort",post: @post %>
+   <!--並び替え機能-->
+  <%= render "public/posts/sort",post: @post %>
   
-    <h2 class="text-center mb-3">Posts <span><i class="fas fa-camera"></i></span></h2>
+  <h2 class="text-center mb-3">Posts <span><i class="fas fa-camera"></i></span></h2>
   <div class="row" id="posts_wrapper">
     <!--投稿写真一覧-->
     <%= render "public/posts/index",posts: @posts %>

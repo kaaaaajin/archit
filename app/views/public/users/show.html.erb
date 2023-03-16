@@ -34,12 +34,13 @@
               </tr>
            </table>
             <% if @user == current_user %>
-             <!--お気に入り保存一覧-->
+             <!--通知一覧一覧-->
              <p class="link text-right">
                <%= link_to activities_path, class: "text-dark" do %>
                  <i class="fas fa-bell fa-lg"></i>通知一覧
                <% end %>
              </p>
+             <!--お気に入り保存一覧-->
              <p class="link text-right">
                <%= link_to favorites_users_path, class: "text-dark" do %>
                  <i class="fas fa-bookmark fa-lg"></i>お気に入り保存
