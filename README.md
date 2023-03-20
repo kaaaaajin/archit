@@ -23,7 +23,6 @@
 
 ### その他
 - [ER図](https://drive.google.com/file/d/1o12XrIo-ZuC_CT9ZfsNfAB7hofvLDN8s/view?usp=sharing)
-- [AWS構成図]()
 
 
 ## 開発環境
