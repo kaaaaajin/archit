@@ -21,6 +21,10 @@
 - 旅行や建築巡りの思い出をシェア
 - 建築デザインやインテリアの参考に
 
+### その他
+- [ER図](https://drive.google.com/file/d/1o12XrIo-ZuC_CT9ZfsNfAB7hofvLDN8s/view?usp=sharing)
+- [AWS構成図]()
+
 
 ## 開発環境
 - OS：LinuxOS
