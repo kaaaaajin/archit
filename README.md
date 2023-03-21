@@ -22,7 +22,7 @@
 - 建築デザインやインテリアの参考に
 
 ### AWS構成図
-![AWS構成図](https://user-images.githubusercontent.com/119267797/226498464-ac48e357-401e-4eef-8b11-23be85d85a54.jpeg)
+![AWS構成図](https://user-images.githubusercontent.com/119267797/226499106-e2065bf4-a426-463b-8425-a8f32645d1e7.jpg)
 ### その他
 - [ER図](https://drive.google.com/file/d/1o12XrIo-ZuC_CT9ZfsNfAB7hofvLDN8s/view?usp=sharing)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/12O31Mdquax7_He7nHfFVGiIxQuyE8drC/edit?usp=sharing&ouid=115966284590806343054&rtpof=true&sd=true)
