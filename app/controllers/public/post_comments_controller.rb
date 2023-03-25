@@ -1,5 +1,6 @@
 class Public::PostCommentsController < ApplicationController
     before_action :authenticate_user!
+    before_action :ensure_correct_user, only: [:destroy]
     
     def create
         @post = Post.find(params[:post_id])
@@ -10,7 +11,6 @@ class Public::PostCommentsController < ApplicationController
         @post_comment.save
     end
     
-    
     def destroy
         @post = Post.find(params[:post_id])
         @post_comment = PostComment.find(params[:id])
@@ -18,10 +18,16 @@ class Public::PostCommentsController < ApplicationController
         @post_comment.destroy
     end
     
-    
     private
     
     def post_comment_params
         params.require(:post_comment).permit(:comment)
+    end
+    
+    def ensure_correct_user
+      @post_comment = PostComment.find(params[:id])
+        unless @post_comment.user == current_user
+          redirect_to posts_path
+        end
     end
 end

@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
     before_action :authenticate_user!
-    before_action :ensure_correct_user, only: [:edit, :update]
+    before_action :ensure_correct_user, only: [:edit, :update, :destroy]
     
     def new
         @post = Post.new
@@ -51,9 +51,7 @@ class Public::PostsController < ApplicationController
         selection = params[:keyword]
         @posts = Post.includes(post_image_attachment:[:blob]).where(id: params[:post_ids].split)
         @posts = @posts.sort_by_date(selection).page(params[:page])
-        
     end
-    
     
     private
     
